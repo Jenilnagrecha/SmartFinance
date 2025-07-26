@@ -22,7 +22,7 @@ public class TechnicalConverter {
 
     private final TechnicalFormatter economyFormatter;
 
-    @Autowired
+
     public TechnicalConverter(TechnicalFormatter economyFormatter) {
         this.economyFormatter = economyFormatter;
     }

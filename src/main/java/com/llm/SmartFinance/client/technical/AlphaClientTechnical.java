@@ -2,7 +2,7 @@ package com.llm.SmartFinance.client.technical;
 
 import com.llm.SmartFinance.exception.AlphaClientException;
 import com.llm.SmartFinance.model.technical.Technical;
-import com.nimbusds.jose.shaded.gson.Gson;
+
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -136,23 +136,23 @@ public class AlphaClientTechnical {
         String bBandContent = "";
         List<String> jsonStringList = new ArrayList<>();
         if (!ObjectUtils.isEmpty(responseData)){
-            Gson gson = new Gson();
+
             JSONObject macd = responseData.get("MACD");
             if (!ObjectUtils.isEmpty(macd)){
                 JSONObject technicalDataMacd = macd.getJSONObject("Technical Analysis: MACD");
-                macdContent = gson.toJson(technicalDataMacd);
+                macdContent =technicalDataMacd.toString();
             }
 
             JSONObject rsi = responseData.get("RSI");
             if (!ObjectUtils.isEmpty(rsi)){
                 JSONObject technicalDataRsi = rsi.getJSONObject("Technical Analysis: RSI");
-                rsiContent = gson.toJson(technicalDataRsi);
+                rsiContent = technicalDataRsi.toString();
             }
 
             JSONObject bBand = responseData.get("BBANDS");
             if (!ObjectUtils.isEmpty(bBand)){
                 JSONObject technicalDataBband = bBand.getJSONObject("Technical Analysis: BBANDS");
-                bBandContent = gson.toJson(technicalDataBband);
+                bBandContent = technicalDataBband.toString();
             }
             jsonStringList.add(macdContent);
             jsonStringList.add(rsiContent);

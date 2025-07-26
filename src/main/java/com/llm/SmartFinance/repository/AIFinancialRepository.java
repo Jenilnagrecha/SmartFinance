@@ -7,7 +7,7 @@ import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.RetrievalAugmentationAdvisor;
 import org.springframework.ai.chat.client.advisor.api.AdvisedRequest;
 import org.springframework.ai.chat.model.ChatModel;
-import org.springframework.ai.openai.OpenAiEmbeddingModel;
+import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.rag.generation.augmentation.ContextualQueryAugmenter;
 import org.springframework.ai.rag.generation.augmentation.QueryAugmenter;
 import org.springframework.ai.rag.preretrieval.query.transformation.QueryTransformer;
@@ -28,11 +28,11 @@ public class AIFinancialRepository {
     private static final Logger log = LoggerFactory.getLogger(AIFinancialRepository.class);
 
     private final VectorStore vectorStore;
-    private final OpenAiEmbeddingModel embeddingModel;
+    private final EmbeddingModel  embeddingModel;
     private final RetrievalAugmentationAdvisor retrievalAugmentationAdvisor;
     private final ChatModel chatModel;
 
-    public AIFinancialRepository(VectorStore vectorStore, OpenAiEmbeddingModel embeddingModel, ChatModel chatModel) {
+    public AIFinancialRepository(VectorStore vectorStore, EmbeddingModel  embeddingModel, ChatModel chatModel) {
         this.vectorStore = vectorStore;
         this.embeddingModel = embeddingModel;
         this.chatModel = chatModel;
